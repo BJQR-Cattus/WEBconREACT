@@ -1,0 +1,410 @@
+.interactive-org-layout.dark-theme {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+            url("/images/homes/img_index/fondo_docs.png");
+    display: flex;
+    min-height: 650px;
+    max-width: 1600px;
+    margin: auto;
+    gap: 3rem;
+    padding: 1px;
+    align-items: stretch;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Contenedor del panel móvil interno oculto por defecto en escritorio */
+.mobile-info-container {
+    display: none;
+}
+
+/* --- PANEL IZQUIERDO: NAVEGADOR --- */
+.dark-theme .org-navigation-panel {
+    width: 45%;
+    background-color: #044308;
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgb(0, 165, 25);
+}
+
+.dark-theme .panel-section-title {
+    font-size: 1.15rem;
+    color: #f9d925;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 0.75rem;
+}
+
+.dark-theme .org-buttons-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de los Botones Nodo */
+.dark-theme .org-btn-node {
+    width: 100%;
+    max-width: 320px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(77, 29, 29, 0.15);
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-theme .org-btn-node:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--verde-500);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+
+}
+
+.dark-theme .org-btn-node.active {
+    background-color: #2e7d32 !important;
+    color: #ffffff !important;
+    border-color: var(--verde-500) !important;
+
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
+    transform: scale(1.04);
+}
+
+/* Bordes de jerarquía */
+.dark-theme .btn-supreme {
+    border-left: 5px solid #62b966;
+}
+
+.dark-theme .btn-direction {
+    border-left: 5px solid var(--verde-500);
+
+}
+
+.dark-theme .btn-staff-control {
+    border: 1.5px dashed #f44336;
+    color: #ff8a80;
+}
+
+.dark-theme .btn-staff-coord {
+    border: 1.5px dashed #2196f3;
+    color: #82b1ff;
+}
+
+.dark-theme .btn-sub {
+    border-left: 4px solid #b0bec5;
+}
+
+.dark-theme .btn-linea {
+    border-left: 4px solid #a5d6a7;
+}
+
+.dark-theme .btn-desconcentrado {
+    border-left: 4px solid #ffcc80;
+}
+
+.dark-theme .connect-line {
+    background-color: rgba(255, 255, 255, 0.551);
+}
+
+.dark-theme .vertical-line {
+    width: 2px;
+    height: 18px;
+}
+
+.dark-theme .buttons-row-group {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    justify-content: center;
+    max-width: 450px;
+}
+
+.dark-theme .buttons-grid-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 450px;
+}
+
+.dark-theme .tree-sub-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: #f9d925;
+    letter-spacing: 0.08em;
+    margin: 0.75rem 0 0.4rem 0;
+}
+
+/* --- PANEL DERECHO: VISUALIZADOR (Escritorio) --- */
+.dark-theme .org-display-panel {
+    width: 55%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.dark-theme .desktop-card-wrapper {
+    width: 100%;
+}
+
+.dark-theme .dynamic-connector-line {
+    position: absolute;
+    left: -3rem;
+    width: 3rem;
+    height: 2px;
+    transform-origin: left center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Posiciones de Líneas */
+.dark-theme .line-state-supreme {
+    transform: translateY(-160px);
+    background-color: #00c70ac4;
+}
+
+.dark-theme .line-state-direccion {
+    transform: translateY(-100px);
+    background-color: var(--verde-500);
+
+}
+
+.dark-theme .line-state-control {
+    transform: translateY(-40px);
+    background-color: #f44336;
+}
+
+.dark-theme .line-state-coordination {
+    transform: translateY(-40px);
+    background-color: #2196f3;
+}
+
+.dark-theme .line-state-planificacion {
+    transform: translateY(30px);
+    background-color: #b0bec5;
+}
+
+.dark-theme .line-state-juridica {
+    transform: translateY(30px);
+    background-color: #b0bec5;
+}
+
+.dark-theme .line-state-administracion {
+    transform: translateY(70px);
+    background-color: #b0bec5;
+}
+
+.dark-theme .line-state-informatica {
+    transform: translateY(70px);
+    background-color: #b0bec5;
+}
+
+.dark-theme .line-state-linea {
+    transform: translateY(150px);
+    background-color: #a5d6a7;
+}
+
+.dark-theme .line-state-desconcentrados {
+    transform: translateY(150px);
+    background-color: #ffcc80;
+}
+
+/* ESTILO GENERAL DE LA TARJETA (Se usa en ambos modos) */
+.dark-theme .info-display-card {
+    background-color: rgba(35, 35, 35, 0.526);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 2.2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-left: 5px solid var(--verde-500);
+    animation: fadeInGradientDark 0.4s ease-out forwards;
+
+}
+
+@keyframes fadeInGradientDark {
+    0% {
+        opacity: 0;
+        transform: translateX(12px);
+        filter: blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+.dark-theme .card-badge {
+    display: inline-block;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: rgba(0, 121, 28, 0.95);
+    color: #f9d925;
+    border-radius: 20px;
+    margin-bottom: 1.1rem;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.dark-theme .card-main-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+}
+
+.dark-theme .card-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    margin-bottom: 1.2rem;
+}
+
+.dark-theme .card-description {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #e0e0e0;
+    margin: 0 0 1.5rem 0;
+}
+
+.dark-theme .card-footer-info {
+    background-color: rgba(1, 48, 8, 0.2);
+    padding: 0.9rem 1.1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .info-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    color: #b0bec5;
+}
+
+/* ==========================================================================
+   ARQUITECTURA EXCLUSIVA RESPONSIVE MÓVIL (Súper Adaptable)
+   ========================================================================== */
+@media (max-width: 950px) {
+    .interactive-org-layout.dark-theme {
+        max-width: 100%;
+        overflow-x: hidden;
+        flex-direction: column;
+        padding: 0.5rem;
+        gap: 0;
+    }
+
+
+    .dark-theme .org-buttons-tree {
+        align-items: stretch;
+    }
+
+
+    /* Ocultamos por completo el panel derecho secundario */
+    .dark-theme .org-display-panel {
+        display: none !important;
+    }
+
+    /* Expandimos el navegador al 100% */
+    .dark-theme .org-navigation-panel {
+        width: 100% !important;
+        padding: 1.5rem 1rem;
+        background-color: transparent;
+        /* Se integra al fondo base */
+        border: none;
+    }
+
+    /* Rompemos grillas y filas para volverlos una sola columna fluida */
+    .dark-theme .buttons-row-group,
+    .dark-theme .buttons-grid-group {
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        gap: 12px;
+        /* Espaciado uniforme */
+    }
+
+    .mobile-w-full {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dark-theme .org-btn-node {
+        max-width: 100%;
+        /* El botón toma todo el ancho cómodo de la pantalla */
+        text-align: left;
+        /* Alineado a la izquierda tipo menú ejecutivo */
+        padding: 1rem 1.2rem;
+        position: relative;
+    }
+
+    /* Indicador de flecha expansiva en móviles */
+    .dark-theme .org-btn-node::after {
+        content: '▼';
+        position: absolute;
+        right: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%) scale(0.8);
+        color: rgba(255, 255, 255, 0.4);
+        transition: transform 0.2s;
+    }
+
+    .dark-theme .org-btn-node.active::after {
+        transform: translateY(-50%) rotate(180deg) scale(0.8);
+        color: #ffffff;
+    }
+
+    /* Habilitamos el contenedor dinámico interno móvil */
+    .mobile-info-container {
+        display: block;
+        width: 100%;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        animation: slideDownMobile 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .dark-theme .info-display-card {
+        padding: 1.5rem;
+        /* Ajuste interno más compacto para móviles */
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Ajuste de líneas conectoras verticales en móviles */
+    .dark-theme .vertical-line {
+        height: 14px;
+    }
+
+    /* Animación fluida de apertura tipo acordeón */
+    @keyframes slideDownMobile {
+        0% {
+            opacity: 0;
+            transform: translateY(-8px);
+            filter: blur(2px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+    }
+}

@@ -1,0 +1,387 @@
+.oficina-page {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--verde-800) 0%, #1c8b008b 55%, #007d0060 100%);
+}
+
+.oficina-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.oficina-page section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ===== HERO ===== */
+.oficina-page .hero-section {
+    background-color: rgba(0, 64, 15, 1);
+    max-width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--verde-brillante);
+}
+
+.oficina-page .page-title {
+    color: var(--oro-dora);
+    font-size: clamp(1.6em, 5vw, 2.4em);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ===== ENCARGADO PRINCIPAL ===== */
+.oficina-page .encargado-section {
+    text-align: center;
+}
+
+.oficina-page .foto-encargado {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid var(--verde-rama);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
+    margin-bottom: 16px;
+}
+
+.oficina-page .nombre {
+    color: var(--blanco);
+    font-size: clamp(1.3em, 4vw, 1.8em);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.oficina-page .cargo {
+    color: var(--verde-300);
+    font-size: clamp(0.95em, 3vw, 1.1em);
+    font-weight: 500;
+}
+
+/* ===== DESCRIPCIÓN ===== */
+.oficina-page .descripcion-section p {
+    color: var(--gris-300);
+    text-align: justify;
+    line-height: 1.7;
+    font-size: clamp(0.9em, 2.5vw, 1em);
+}
+
+/* ===== FUNCIONES / ENLACES / PERSONAL / CONTACTO (títulos) ===== */
+.oficina-page .funciones-section h3,
+.oficina-page .enlaces-interes-section h3,
+.oficina-page .personal-section h3,
+.oficina-page .contacto-section h3 {
+    color: var(--oro-dora);
+    font-size: clamp(1.1em, 3vw, 1.4em);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.oficina-page .funciones-section h3 i,
+.oficina-page .enlaces-interes-section h3 i,
+.oficina-page .personal-section h3 i {
+    color: var(--verde-brillante);
+}
+
+.oficina-page .funciones-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.oficina-page .funciones-list li {
+    background-color: #90a4ae9f;
+    border-left: 4px solid var(--verde-brillante);
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: var(--gris-300);
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(250, 250, 250, 0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.oficina-page .funciones-list li:hover {
+    transform: translateX(4px);
+    background-color: rgba(0, 255, 60, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 121, 28, 0.3);
+}
+
+.oficina-page .funciones-list li i {
+    color: var(--verde-rama);
+    margin-top: 3px;
+}
+
+/* ===== ENLACES DE INTERÉS ===== */
+.oficina-page .botones-enlaces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.oficina-page .btn-enlace {
+    background-color: rgba(0, 64, 15, 1);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 16px 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.92em;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.oficina-page .btn-enlace i {
+    color: var(--verde-brillante);
+    font-size: 1.1em;
+}
+
+.oficina-page .btn-enlace:hover {
+    background-color: var(--verde-rama);
+    border-color: var(--verde-brillante);
+    transform: translateY(-3px);
+}
+
+/* ===== PERSONAL (AVATARES) ===== */
+.oficina-page .personal-avatar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.oficina-page .avatar-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.oficina-page .avatar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 121, 28, 0.35);
+}
+
+.oficina-page .avatar-wrapper {
+    flex: 0 0 auto;
+}
+
+.oficina-page .foto-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--verde-rama);
+}
+
+.oficina-page .nombre-trabajador {
+    color: var(--verde-oscuro-inst);
+    font-size: 1em;
+    margin-bottom: 4px;
+}
+
+.oficina-page .cargo-trabajador,
+.oficina-page .ubicacion-trabajador {
+    font-size: 0.85em;
+    color: var(--gris-neutro);
+    margin: 2px 0;
+}
+
+.oficina-page .cargo-trabajador i,
+.oficina-page .ubicacion-trabajador i {
+    color: var(--verde-rama);
+    margin-right: 5px;
+}
+
+/* ===== GALERÍA ===== */
+.oficina-page .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.oficina-page .galeria-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.oficina-page .galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.oficina-page .galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+.oficina-page .galeria-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 64, 15, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.oficina-page .galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+.oficina-page .galeria-overlay i {
+    color: var(--blanco);
+    font-size: 1.6em;
+}
+
+/* ===== LIGHTBOX ===== */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    animation: lightboxFade 0.25s ease;
+}
+
+@keyframes lightboxFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    color: var(--gris-300);
+    margin-top: 14px;
+    font-size: 0.95em;
+    text-align: center;
+    max-width: 600px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--blanco);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.lightbox-close:hover {
+    background: var(--rojo-600);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--blanco);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.lightbox-nav:hover {
+    background: var(--verde-rama);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+@media (max-width: 600px) {
+    .lightbox-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1em;
+    }
+
+    .lightbox-close {
+        width: 36px;
+        height: 36px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .lightbox-prev {
+        left: 8px;
+    }
+
+    .lightbox-next {
+        right: 8px;
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .oficina-page section {
+        padding: 28px 16px;
+    }
+
+    .oficina-page .foto-encargado {
+        width: 160px;
+        height: 160px;
+    }
+
+    .oficina-page .avatar-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .oficina-page .botones-enlaces-grid {
+        grid-template-columns: 1fr;
+    }
+}

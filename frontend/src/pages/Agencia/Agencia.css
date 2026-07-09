@@ -1,0 +1,439 @@
+body {
+    /* Se mantiene el fondo oscuro base para coherencia */
+    background-color: #001d11; 
+}
+
+/*CSS-CARRUSELTB----*/
+
+main {
+    position: relative; 
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    min-height: 10vh; 
+} 
+
+.degradado-section {
+    display: flex;
+    align-items: center;
+    padding:50px 0;
+    overflow: hidden; /*Evita desborde y 60vh para que este el carrusel, ¡Tener Cuidado...*/
+    background-color: #001d11;
+    margin: 50px 0;
+    height: auto;
+}
+
+.swiper-container {
+    flex: 1;
+    height: 450px; 
+    overflow: hidden; 
+}
+
+.swiper {
+    width: 100%; 
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.swiper-pagination {
+    bottom: 1rem !important; 
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+    background: #f9d925; /* Color de acento unificado */
+}
+
+.texto-container {
+    flex: 1;
+    padding: 2rem;
+    color: #e0e0e0; /* Color de texto base más suave */
+}
+
+.texto-container h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Tamaño de fuente adaptable */
+    margin: 0px;
+    font-family: system-ui, -apple-system, sans-serif; /* Fuente moderna */
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.texto-container h2 {
+    font-size: 1.1rem;
+    color: #f9d925; /* Color de acento unificado */
+    font-family: system-ui, -apple-system, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.texto-container p {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem); /* Tamaño de fuente adaptable */
+    margin-top: 10px;
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    text-align: justify;
+}
+
+/* Media Queries para la responsividad */
+@media (max-width: 768px) {
+    .degradado-section {
+        display: block;
+        height: auto;
+    }
+
+    .swiper-container {
+        height: 45vh; /* Altura ajustada para móviles */
+    }
+
+    .texto-container {
+        padding: 1.5rem;
+        overflow: visible;
+        max-height: auto;
+    }
+
+    .texto-container h1 {
+        overflow-wrap: anywhere;
+        font-size: 2em;
+    }
+
+    .texto-container p {
+        font-size: 1em;
+    }
+}
+
+/* ===== DIRECTOR ===== */
+#directora-info {
+    text-align: center; 
+    padding: 3rem 1rem;
+}
+
+.director-img img {
+    border-radius: 50%;
+    border: 8px solid #2e7d32; /* Borde con color corporativo */
+    width: clamp(200px, 40vw, 300px); /* Tamaño adaptable */
+    height: clamp(200px, 40vw, 300px);
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.director-name {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 700;
+    color: #f9d925; /* Color de acento */
+    margin-top: 1.5rem;
+}
+
+.director-cargo {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #e0e0e0;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.director-description {
+    margin-top: 1rem;
+    color: #c0c0c0;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*especifco*/
+.objets-especifcs-h {
+    margin: 30px 0;
+    padding: 2rem;
+    border-radius: 20px;
+    background: radial-gradient(circle at 25% 25%, #7fffd433, transparent 60%),
+        radial-gradient(circle at 75% 75%, #00bfff33, transparent 60%),
+        #043a1a; /* Tono de verde oscuro más integrado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+.objets-especifcs-h h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #f9d925;
+    font-family: system-ui, -apple-system, sans-serif;
+    margin-bottom: 15px;
+}
+
+.objets-especifcs-h p {
+    font-size: 1em;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+/*Bloque inforativo*/
+/* ===== BLOQUES DE INFORMACIÓN ===== */
+#info-blocks .info-block {
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 4px 8px rgba(46, 125, 50, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.info-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(46, 125, 50, 0.3);
+}
+
+.info-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 28, 16, 0.88); /* Superposición más oscura y verdosa */
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.info-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.info-title {
+    font-size: 1.8rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #f9d925;
+    margin-bottom: 20px;
+}
+
+.info-text {
+    font-weight: 400;
+    color: #d0d0e0;
+    text-align: justify;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    #services {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .director-description {
+        padding: 10px;
+    }
+}
+
+/*::::::::::_____MISIÓN Y VISIÓN_____::::::::::*/
+
+#vis_mis {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 8px;
+    gap: 1.5rem; /* Espacio entre tarjetas */
+}
+
+.vision,
+.mision {
+    flex: 1;
+    padding: 2rem;
+    background: radial-gradient(circle at 30% 30%, #7fffd433, transparent 60%),
+        radial-gradient(circle at 70% 70%, #00bfff33, transparent 60%),
+        #043a1a; /* Tono de verde oscuro más integrado */
+    border-radius: 20px;
+    font-weight: 400;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vision h2 {
+    font-size: 1.3rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #f9d925;
+}
+
+.mision h2 {
+    font-size: 1.3rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #f9d925;
+}
+
+.vision {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    text-align: justify;
+}
+
+.mision p {
+    line-height: 1.5;
+    color: #e0e0e0;
+    font-family: system-ui, -apple-system, sans-serif;
+    text-align: justify;
+}
+
+/* Estilo para pantallas pequeñas */
+@media (max-width: 768px) {
+    #vis_mis {
+        flex-direction: column;
+        /* Apila los divs en columna */
+    }
+
+    .vision,
+    .mision {
+        margin: 0; /* Eliminado para usar gap */
+        /* Margen vertical en vez de horizontal */
+    }
+}
+
+/*========LINEA BOREAL===========*/
+.boreal-line {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(270deg, #2e7d32, #001d11, #f9d925, #2e7d32);
+    background-size: 300% 300%;
+    animation: moveBoreal 5s linear infinite;
+}
+
+@keyframes moveBoreal {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ====== ALLIES SLIDER (mismo carrusel que Home) ====== */
+.aliados-carousel-container {
+    /* Fondo oscuro integrado con el tema */
+    background-image: linear-gradient(to bottom, #043a1a, #001d11);
+    padding: 50px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.aliados-titulo {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* El 'viewport' del carrusel, oculta el overflow */
+.aliados-slider {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.aliados-slide-track {
+    display: flex;
+    /* Ancho total: (Nº de slides) * (ancho de cada slide) */
+    width: calc(250px * 16);
+    animation: scroll 40s linear infinite;
+}
+
+.aliados-slider:hover .aliados-slide-track {
+    animation-play-state: paused;
+}
+
+.aliados-slide {
+    height: 120px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+.aliados-slide img {
+    width: auto;
+    max-width: 100%;
+    max-height: 90px;
+    /* Altura máxima para normalizar visualmente */
+    object-fit: contain;
+    /* Mantiene la proporción sin recortar */ 
+    transition: transform 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.aliados-slide:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 8));
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .aliados-slide-track {
+        width: calc(200px * 16);
+        animation-duration: 35s;
+    }
+
+    .aliados-slide {
+        width: 200px;
+    }
+
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-200px * 8));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .aliados-slide-track {
+        width: calc(150px * 16);
+        animation-duration: 30s;
+    }
+
+    .aliados-slide {
+        width: 150px;
+        height: 100px;
+    }
+
+    @keyframes scroll {
+        100% {
+            transform: translateX(calc(-150px * 8));
+        }
+    }
+}   

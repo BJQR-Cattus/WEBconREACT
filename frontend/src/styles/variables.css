@@ -1,0 +1,40 @@
+:root {
+    /* VERDES (identidad agrícola) */
+    --verde-900: #1B5E20;
+    --verde-800: #246B27;
+    --verde-700: #2E7D32;
+    --verde-600: #388E3C;
+    --verde-500: #43A047;
+    --verde-400: #66BB6A;
+    --verde-300: #81C784;
+    --verde-200: #A5D6A7;
+    --verde-100: #E8F5E9;
+
+    /* TIERRA (contexto rural) */
+    --tierra-800: #5D4037;
+    --tierra-600: #8D6E63;
+    --oro-dora: #f9d925;
+    --tierra-300: #BCAAA4;
+    --arena-100: #F5EFE6;
+
+    /* DOCUMENTOS / INTERFAZ (neutros) */
+    --gris-900: #263238;
+    --gris-700: #455A64;
+    --gris-500: #90A4AE;
+    --gris-300: #CFD8DC;
+    --gris-100: #ECEFF1;
+    --blanco: #FFFFFF;
+
+    /* ACENTOS */
+    --azul-600: #1E88E5;
+    --azul-100: #E3F2FD;
+    --ambar-600: #F9A825;
+    --rojo-600: #D32F2F;
+    --rojo-100: #FFEBEE;
+
+    /* ESTADOS */
+    --exito: #2E7D32;
+    --info: #1E88E5;
+    --advertencia: #F9A825;
+    --error: #D32F2F;
+}
