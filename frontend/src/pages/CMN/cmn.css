@@ -1,0 +1,267 @@
+/* Estilos principales de la página */
+.cmn-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    overflow-x: hidden;
+}
+
+/* Hero con efecto de curvatura orgánica */
+.cmn-hero {
+    position: relative;
+    background: linear-gradient(135deg, #003622 0%, #00643c 100%);
+    padding: 100px 20px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0 0 50% 50% / 0 0 15% 15%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Burbuja decorativa traslúcida en el fondo del hero */
+.cmn-hero .hero-bg {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 255, 90, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 0% 100% 70% 100% / 0% 100% 70% 100%;
+    transform: rotate(45deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Segunda burbuja decorativa del hero */
+.cmn-hero::before {
+    content: '';
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 70% 30% 100% 0% / 70% 0% 100% 30%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Contenedor del contenido del hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título principal */
+.cmn-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+/* Subtítulo del hero */
+.cmn-hero p {
+    font-size: 1.3rem;
+    color: #00ff5a;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+/* Botón principal con la sombra suavizada y el cursor personalizado */
+#togglePDF {
+    background: linear-gradient(135deg, #ffcc00 0%, #e6b800 100%);
+    color: #000000;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 5px -3px 4px 1px rgba(0, 0, 0, 0.5);
+    cursor: url("cursor.png") 0 0, pointer;
+}
+
+/* Efecto hover del botón principal */
+#togglePDF:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 7px -4px 6px 1px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #f9d925 0%, #f9d925 100%);
+}
+
+/* Efecto activo al presionar el botón */
+#togglePDF:active {
+    transform: translateY(1px);
+    box-shadow: 2px -1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor del visor PDF */
+.pdf-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    height: 75vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Elemento iframe del PDF */
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Contenedor de la sección de modificaciones */
+.cmn-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+}
+
+/* Título de las modificaciones */
+.cmn-section h2 {
+    color: #004a2d;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Texto de descripción de la sección */
+.descripcion {
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+/* Grid para las tarjetas de modificaciones */
+.cmn-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjetas con forma de gota adaptadas al fondo claro */
+.modificacion-item {
+    background: #f4f7f5;
+    padding: 35px 30px;
+    border: 1px solid rgba(0, 74, 45, 0.08);
+    border-radius: 30px 4px 30px 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Línea indicadora verde en la tarjeta */
+.modificacion-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #00643c;
+    transition: all 0.4s ease;
+}
+
+/* Efecto de hover interactivo en las tarjetas */
+.modificacion-item:hover {
+    transform: translateY(-5px);
+    background: #eef3f0;
+    border-color: rgba(0, 100, 60, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 4px 30px 30px 30px;
+}
+
+/* Títulos internos de las tarjetas */
+.modificacion-item h3 {
+    margin: 0 0 15px 0;
+    color: #111111;
+    font-size: 1.3rem;
+}
+
+/* Fechas de las modificaciones */
+.modificacion-item p {
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Enlaces de descarga con el cursor personalizado */
+.modificacion-item a {
+    color: #00643c;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+    cursor: url("cursor.png") 0 0, pointer;
+}
+
+/* Cambio de color en el enlace al pasar el cursor */
+.modificacion-item a:hover {
+    color: #ffcc00;
+}
+
+/* Adaptación para pantallas medianas o tablets */
+@media (max-width: 992px) {
+    .cmn-hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .pdf-container {
+        height: 60vh;
+    }
+}
+
+/* Adaptación para pantallas pequeñas o móviles */
+@media (max-width: 768px) {
+    .cmn-hero {
+        padding: 70px 15px;
+        border-radius: 0 0 50% 50% / 0 0 8% 8%;
+    }
+
+    .cmn-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .cmn-hero p {
+        font-size: 1.1rem;
+    }
+
+    #togglePDF {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .pdf-container {
+        width: 95%;
+        height: 50vh;
+    }
+
+    .cmn-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animación de entrada para el visor de documentos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

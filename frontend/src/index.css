@@ -133,7 +133,7 @@ h3,
 h4 {
   font-family: var(--heading);
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--ambar-600);
   margin: 0 0 8px;
 }
 
@@ -175,7 +175,6 @@ code {
   min-height: 500px;
   max-height: 900px;
   overflow: hidden;
-  box-shadow: var(--shadow-heavy);
 }
 
 .carousel-container {
@@ -504,32 +503,15 @@ code {
 .docs-section {
   position: relative;
   padding: 80px 20px;
+  background-image:
+      linear-gradient(to bottom, var(--bg) 0%, transparent 20%),
+      linear-gradient(to top, var(--bg) 0%, transparent 20%),
+      url('/images/homes/img_index/fondo_docs.png');
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg);
   text-align: center;
-  background: url('public/images/homes/img_index/fondo_docs.png') no-repeat center/cover fixed;
-  z-index: 1; 
 }
-
-.docs-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(149, 170, 153, 0.568);
-  z-index: 0;
-  transition: background 0.3s;
-}
-
-.docs-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(to top, var(--bg), transparent);
-  pointer-events: none;
-  z-index: 2;
-}
-
 .docs-section * {
   position: relative;
   z-index: 1;
@@ -539,7 +521,7 @@ code {
 .map-section h2,
 .Titulo-NC {
   font-size: clamp(1.8em, 3vw, 2.5em);
-  color: var(--brand-secondary);
+  color: var(--oro-dora);
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -592,7 +574,12 @@ code {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(to bottom, rgb(182, 255, 208), transparent 60%);
+  background-image:
+      linear-gradient(to bottom, var(--bg) 0%, transparent 20%),
+      linear-gradient(to top, var(--bg) 0%, transparent 20%),
+      linear-gradient(rgba(149, 170, 153, 0.568), rgba(149, 170, 153, 0.568)),
+      url("/images/homes/img_index/fondo_docs.png");
+  background-size: cover;
   background-color: var(--bg);
   z-index: 0;
 }
@@ -609,6 +596,7 @@ code {
   z-index: 10;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #f9d925;
 }
 
 .news-card {
@@ -642,7 +630,7 @@ code {
   background: no-repeat center/cover;
   display: flex;
   align-items: flex-end;
-  color: #fff;
+  color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
@@ -664,6 +652,11 @@ code {
   overflow-y: auto;
 }
 
+.back_notice>* {
+  position: relative;
+  z-index: 1;
+}
+
 .back_notice::before {
   content: "";
   position: absolute;
@@ -672,6 +665,10 @@ code {
   opacity: 0.9;
   backdrop-filter: blur(8px);
   z-index: 0;
+}
+
+.Contenido_Noticias {
+  color: #ffeed7;
 }
 
 .leermas_notice {
@@ -713,7 +710,12 @@ code {
 /* ====== MAP SECTION ====== */
 .map-section {
   padding: 80px 20px;
-  background-image: linear-gradient(to bottom, rgb(182, 255, 208), transparent 60%);  
+  background-image:
+      linear-gradient(to bottom, var(--bg) 0%, transparent 20%),
+      linear-gradient(to top, var(--bg) 0%, transparent 20%),
+      url("/images/homes/img_index/fondo_docs.png");
+  background-size: cover;
+  background-position: center;
   background-color: var(--bg);
   text-align: center;
 }
@@ -723,7 +725,6 @@ code {
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow);
 }
 
 .map-container iframe {
@@ -731,6 +732,16 @@ code {
   height: 500px;
   border: 0;
   display: block;
+}
+
+.notice-section::before,
+.map-section {
+  background-image:
+    linear-gradient(to bottom, var(--bg) 0%, transparent 20%),
+    linear-gradient(to top, var(--bg) 0%, transparent 20%),
+    linear-gradient(to bottom, rgba(20, 50, 30, 0.8), transparent 50%),
+    url("/images/homes/img_index/fondo_docs.png");
+  background-color: var(--bg);
 }
 
 /* ====== ALLIES SLIDER ====== */

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -7,7 +7,7 @@ function Home() {
   const slides = [
     {
       img: "/images/homes/img_index/fondoprincipal.jpg",
-      title: "Ing. Director",
+      title: "Ing. Santiago Santi S.",
       subtitle: "DIRECTOR DE LA DIRECCIÓN REGIONAL DE AGRICULTURA HUANCAVELICA",
       text: "Impulsando el desarrollo agrario de nuestra región",
       overlay: "dark",
@@ -32,7 +32,7 @@ function Home() {
       img: "/images/homes/img_index/fondo_banner.png",
       title: "Cultivando el Futuro",
       text: "Seguridad alimentaria",
-      imgInside: "/images/homes/img_index/banner3.png",
+      imgInside: "/images/homes/banner3.png",
       reverse: true,
       overlay: "light",
     },
@@ -75,6 +75,19 @@ function Home() {
     }
   };
 
+  /*boton siguiente*/
+  const nextSlide = useCallback(() => {
+    if (current >= extendedSlides.length - 1) return;
+
+    setCurrent((c) => c + 1);
+  }, [current, extendedSlides.length]);
+
+  const prevSlide = () => {
+    if (current <= 0) return;
+
+    setCurrent((c) => c - 1);
+  };
+
   /* Autoplay */
   useEffect(() => {
     const interval = setInterval(() => {
@@ -84,7 +97,7 @@ function Home() {
     }, 8000);
 
     return () => clearInterval(interval);
-  }, [current, isJumping]);
+  }, [isJumping, nextSlide]);
 
   /* Si, para volver de otra pestaña */
   useEffect(() => {
@@ -106,18 +119,6 @@ function Home() {
       document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [current, slides.length, extendedSlides.length]);
-  /*boton siguiente*/
-  const nextSlide = () => {
-    if (current >= extendedSlides.length - 1) return;
-
-    setCurrent((c) => c + 1);
-  };
-
-  const prevSlide = () => {
-    if (current <= 0) return;
-
-    setCurrent((c) => c - 1);
-  };
 
   /* ================= SWIPE (MÓVIL) ================= */
   const touchStartX = useRef(0);
@@ -243,62 +244,121 @@ function Home() {
             {
               nombre: "CONVOCATORIAS",
               icono: "https://cdn.lordicon.com/ijsfqddi.json",
+              tipo: "interno",
+              destino: "/convocatorias",
             },
             {
               nombre: "CORREO INSTITUCIONAL",
               icono: "https://cdn.lordicon.com/icuxkywm.json",
+              tipo: "interno",
+              destino: "/directorio",
             },
             {
-              nombre: "NORMATIVA",
+              nombre: "NORMATIVA INSTITUCIONAL",
               icono: "https://cdn.lordicon.com/iubtdgvu.json",
+              tipo: "interno",
+              destino: "/normativa-institucional",
             },
             {
               nombre: "DOCUMENTOS DE GESTION",
               icono: "https://cdn.lordicon.com/qtebspeb.json",
+              tipo: "interno",
+              destino: "/documentos-gestion",
             },
             {
-              nombre: "TRANSPARENCIA",
+              nombre: "PORTAL DE TRANSPARENCIA",
               icono: "https://cdn.lordicon.com/vgxjrbxm.json",
+              tipo: "externo",
+              destino: "https://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=10142",
             },
             {
               nombre: "CONTROL INTERNO",
               icono: "https://cdn.lordicon.com/vxiljicu.json",
+              tipo: "interno",
+              destino: "/control-interno",
             },
             {
               nombre: "SIGA REGIONAL",
               icono: "https://cdn.lordicon.com/ntfaoelc.json",
+              tipo: "externo",
+              destino: "http://siga.regionhuancavelica.gob.pe/mysiganew/content/index.php",
             },
             {
               nombre: "SISGEDO",
               icono: "https://cdn.lordicon.com/zcpmxjfa.json",
+              tipo: "externo",
+              destino: "http://sisgedo.regionhuancavelica.gob.pe/sisgedonew/app/main.php?_op=1I&_type=L",
             },
             {
               nombre: "DATOS ESTADISTICOS",
               icono: "https://cdn.lordicon.com/utdckhgo.json",
+              tipo: "interno",
+              destino: "/datos-estadisticos",
             },
             {
-              nombre: "HUANCAVELICA",
+              nombre: "REDIAGRO-HUANCAVELICA",
               icono: "https://cdn.lordicon.com/jgeruqwm.json",
+              tipo: "interno",
+              destino: "/rediagro-huancavelica",
             },
             {
               nombre: "RESOLUCIONES",
               icono: "https://cdn.lordicon.com/ifyskbjd.json",
+              tipo: "interno",
+              destino: "/resoluciones",
             },
             {
               nombre: "SEGURO AGRARIO",
               icono: "https://cdn.lordicon.com/iiudwewg.json",
+              tipo: "interno",
+              destino: "/seguro-agrario",
             },
-          ].map((doc, i) => (
-            <div key={i} className="doc-item">
-              <lord-icon
-                src={doc.icono}
-                trigger="hover"
-                style={{ width: "80px", height: "80px" }}
-              ></lord-icon>
+            {
+              nombre: "BOLETIN ESTADISTICO OEI",
+              icono: "https://cdn.lordicon.com/lrlxzbgj.json",
+              tipo: "interno",
+              destino: "/boletin-estadistico",
+            },
+            {
+              nombre: "LIBRO DE RECLAMACIONES",
+              icono: "https://cdn.lordicon.com/izhpqsis.json",
+              tipo: "interno",
+              destino: "/contacto",
+            },
+            {
+              nombre: "SANEAMIENTO FISICO LEGAL",
+              icono: "https://cdn.lordicon.com/izhpqsis.json",
+              tipo: "interno",
+              destino: "/saneamiento-fisico-legal",
+            },
+            {
+              nombre: "CONSULTE SU REGISTRO EN EL PPA",
+              icono: "https://cdn.lordicon.com/aksvbzmu.json",
+              tipo: "externo",
+              destino: "https://consultapadron.midagri.gob.pe/",
+            }
+          ].map((doc, i) => {
+            const cardContent = (
+              <div className="doc-item">
+                <lord-icon
+                  src={doc.icono}
+                  trigger="hover"
+                  style={{ width: "80px", height: "80px" }}
+                ></lord-icon>
+                <span>{doc.nombre}</span>
+              </div>
+            );
 
-              <span>{doc.nombre}</span>
-            </div>
-          ))}
+            if (doc.tipo === "interno" && doc.destino) {
+              return <Link to={doc.destino} key={i}>{cardContent}</Link>;
+            }
+            if (doc.tipo === "externo" && doc.destino) {
+              return (
+                <a href={doc.destino} key={i} target="_blank" rel="noopener noreferrer">{cardContent}</a>
+              );
+            }
+            return <div key={i}>{cardContent}</div>;
+          })}
         </div>
       </section>
 
@@ -324,7 +384,7 @@ function Home() {
               <h2>
                 <u>Noticia{i + 1}</u>
               </h2>
-              <p>
+              <p className="Contenido_Noticias">
                 Contenido completo de la noticia: Noticia, noticia, noticia,
                 noticia, noticia , noticia, noticia, noticia, noticia, noticia,
                 noticia , noticia, noticia , noticia, noticia, noticia, noticia,

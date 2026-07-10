@@ -140,10 +140,10 @@ function Navbar() {
             </span>
             <ul className="dropdown-menu">
               <li className="downxd">
-                <Link to="/cmn2024">Ver CMN 2024</Link>
+                <Link to="/cmn24">Ver CMN 2024</Link>
               </li>
               <li className="downxd">
-                <Link to="/cmn2025">Ver CMN 2025</Link>
+                <Link to="/cmn25">Ver CMN 2025</Link>
               </li>
             </ul>
           </li>

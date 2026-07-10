@@ -1,0 +1,412 @@
+.convocatorias-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--gris-900) 0%, #1a2429 55%, #10171a 100%);
+  color: var(--blanco);
+}
+
+.convocatorias-page__hero {
+  background: rgba(0, 64, 15, 1);
+  border-bottom: 3px solid var(--verde-brillante);
+  padding: 64px 20px;
+}
+
+.convocatorias-page__hero-content {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.convocatorias-page__eyebrow {
+  color: var(--verde-brillante);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.convocatorias-page h1 {
+  color: var(--oro-dora);
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.convocatorias-page__hero p {
+  color: var(--gris-300);
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.convocatorias-page__content {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 72px;
+}
+
+.convocatorias-page__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.convocatorias-page__stats article {
+  background: rgba(0, 64, 15, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.convocatorias-page__stats span {
+  color: var(--oro-dora);
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.convocatorias-page__stats p {
+  color: var(--gris-300);
+  font-size: 0.83rem;
+  font-weight: 800;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.convocatorias-page__year-tabs,
+.convocatorias-page__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.convocatorias-page__year-tabs {
+  margin-bottom: 14px;
+}
+
+.convocatorias-page__mode-tabs {
+  margin-bottom: 24px;
+}
+
+.convocatorias-page__year-tabs button,
+.convocatorias-page__mode-tabs button {
+  min-height: 42px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: var(--blanco);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  padding: 0 18px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.convocatorias-page__year-tabs button {
+  min-width: 110px;
+}
+
+.convocatorias-page__year-tabs button:hover,
+.convocatorias-page__mode-tabs button:hover,
+.convocatorias-page__year-tabs button.active,
+.convocatorias-page__mode-tabs button.active {
+  background: var(--verde-rama);
+  border-color: var(--verde-brillante);
+  transform: translateY(-1px);
+}
+
+.convocatorias-page__accordion {
+  display: grid;
+  gap: 14px;
+}
+
+.convocatorias-page__call {
+  background: rgba(0, 64, 15, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.convocatorias-page__call.open {
+  border-color: rgba(0, 255, 60, 0.45);
+}
+
+.convocatorias-page__call-trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  gap: 14px;
+  align-items: center;
+  background: rgba(0, 64, 15, 1);
+  border: 0;
+  color: var(--blanco);
+  cursor: pointer;
+  font: inherit;
+  padding: 16px;
+  text-align: left;
+}
+
+.convocatorias-page__number {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--oro-dora);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.convocatorias-page__title-block {
+  min-width: 0;
+}
+
+.convocatorias-page__title-block strong {
+  display: block;
+  color: var(--blanco);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.convocatorias-page__title-block small {
+  display: block;
+  color: var(--gris-300);
+  font-weight: 800;
+  margin-top: 5px;
+}
+
+.convocatorias-page__status {
+  border-radius: 999px;
+  color: var(--blanco);
+  font-size: 0.74rem;
+  font-weight: 900;
+  min-height: 28px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.convocatorias-page__status.en-proceso {
+  background: var(--azul-600);
+}
+
+.convocatorias-page__status.finalizado {
+  background: var(--verde-700);
+}
+
+.convocatorias-page__status.cancelado {
+  background: var(--rojo-600);
+}
+
+.convocatorias-page__call-trigger i {
+  color: var(--verde-brillante);
+}
+
+.convocatorias-page__call-content {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.36fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.convocatorias-page__stage-menu {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.convocatorias-page__stage-menu button {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--gris-300);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 9px 10px 9px 14px;
+  text-align: left;
+}
+
+.convocatorias-page__stage-menu button::before {
+  content: "";
+  position: absolute;
+  inset: 9px auto 9px 0;
+  width: 4px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.convocatorias-page__stage-menu button span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--oro-dora);
+  font-size: 0.78rem;
+}
+
+.convocatorias-page__stage-menu button.active {
+  background: rgba(0, 121, 28, 0.55);
+  border-color: var(--verde-brillante);
+  color: var(--blanco);
+}
+
+.convocatorias-page__stage-menu button.active::before {
+  background: var(--verde-brillante);
+}
+
+.convocatorias-page__docs-panel {
+  min-width: 0;
+  background: rgba(0, 64, 15, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.convocatorias-page__docs-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.convocatorias-page__docs-header span {
+  color: var(--verde-brillante);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.convocatorias-page__docs-header h2 {
+  color: var(--oro-dora);
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 0;
+  text-align: left;
+}
+
+.convocatorias-page__docs-list {
+  display: grid;
+  gap: 10px;
+}
+
+.convocatorias-page__doc-link {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 48px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--blanco);
+  padding: 10px 12px;
+  text-align: left;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.convocatorias-page__doc-link:hover {
+  background: rgba(0, 121, 28, 0.55);
+  border-color: var(--verde-brillante);
+}
+
+.convocatorias-page__doc-link i {
+  color: var(--oro-dora);
+  font-size: 1.1rem;
+}
+
+.convocatorias-page__doc-link span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.convocatorias-page__doc-link small {
+  color: var(--verde-200);
+  font-weight: 900;
+}
+
+.convocatorias-page__empty {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  min-height: 220px;
+  background: rgba(0, 64, 15, 0.45);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  color: var(--gris-300);
+  text-align: center;
+}
+
+.convocatorias-page__empty i {
+  color: var(--verde-brillante);
+  font-size: 2rem;
+}
+
+@media (max-width: 820px) {
+  .convocatorias-page__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .convocatorias-page__call-trigger {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .convocatorias-page__status {
+    grid-column: 2 / -1;
+    width: fit-content;
+  }
+
+  .convocatorias-page__call-content {
+    grid-template-columns: 1fr;
+  }
+
+  .convocatorias-page__stage-menu {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .convocatorias-page__hero {
+    padding: 52px 16px;
+  }
+
+  .convocatorias-page__content {
+    width: min(100% - 24px, 1120px);
+    padding-top: 26px;
+  }
+
+  .convocatorias-page__call-trigger {
+    grid-template-columns: 1fr auto;
+  }
+
+  .convocatorias-page__number {
+    width: 46px;
+    height: 46px;
+  }
+
+  .convocatorias-page__title-block,
+  .convocatorias-page__status {
+    grid-column: 1 / -1;
+  }
+
+  .convocatorias-page__docs-header {
+    display: grid;
+  }
+}

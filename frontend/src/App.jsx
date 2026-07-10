@@ -29,6 +29,19 @@ import AgenciaChurcampa from "./pages/Agencia/AgenciaChurcampa.jsx";
 import AgenciaHuancavelica from "./pages/Agencia/AgenciaHuancavelica.jsx";
 import AgenciaHuaytara from "./pages/Agencia/AgenciaHuaytara.jsx";
 import AgenciaTayacaja from "./pages/Agencia/AgenciaTayacaja.jsx";
+import Cmn24Page from './pages/CMN/cmn24Page.jsx';
+import Cmn25Page from './pages/CMN/cmn25Page.jsx';
+import Contacto from './pages/Contacto/formulario.jsx';
+import NormativaInstitucional from './pages/Documentos/NormativaInstitucional.jsx';
+import SeguroAgrario from './pages/Documentos/SeguroAgrario.jsx';
+import BoletinEstadistico from './pages/Documentos/BoletinEstadistico.jsx';
+import SaneamientoFisicoLegalDocs from './pages/Documentos/SaneamientoFisicoLegalDocs.jsx';
+import DocumentosGestion from './pages/Documentos/DocumentosGestion.jsx';
+import ControlInterno from './pages/Documentos/ControlInterno.jsx';
+import DatosEstadisticos from './pages/Documentos/DatosEstadisticos.jsx';
+import RediagroHuancavelica from './pages/Documentos/RediagroHuancavelica.jsx';
+import Resoluciones from './pages/Documentos/Especiales/Resoluciones.jsx';
+import Convocatorias from './pages/Documentos/Especiales/Convocatorias.jsx';
 
 function App() {
   return (
@@ -57,6 +70,19 @@ function App() {
         <Route path="/AgenciaHuancavelica" element={<AgenciaHuancavelica />} />
         <Route path="/AgenciaHuaytara" element={<AgenciaHuaytara />} />
         <Route path="/AgenciaTayacaja" element={<AgenciaTayacaja />} />
+        <Route path="/cmn24" element={<Cmn24Page />} />
+        <Route path="/cmn25" element={<Cmn25Page />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/normativa-institucional" element={<NormativaInstitucional />} />
+        <Route path="/seguro-agrario" element={<SeguroAgrario />} />
+        <Route path="/boletin-estadistico" element={<BoletinEstadistico />} />
+        <Route path="/saneamiento-fisico-legal" element={<SaneamientoFisicoLegalDocs />} />
+        <Route path="/documentos-gestion" element={<DocumentosGestion />} />
+        <Route path="/control-interno" element={<ControlInterno />} />
+        <Route path="/datos-estadisticos" element={<DatosEstadisticos />} />
+        <Route path="/rediagro-huancavelica" element={<RediagroHuancavelica />} />
+        <Route path="/resoluciones" element={<Resoluciones />} />
+        <Route path="/convocatorias" element={<Convocatorias />} />
       </Routes>
       <Footer />
     </BrowserRouter>

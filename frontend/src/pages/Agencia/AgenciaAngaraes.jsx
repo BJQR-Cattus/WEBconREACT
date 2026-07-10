@@ -123,7 +123,7 @@ function AgenciaAngaraes() {
                         {[...Array(16)].map((_, i) => (
                             <div key={i} className="aliados-slide">
                                 <img
-                                    src={`/images/img/img_aliados/partner${(i % 8) + 1}.png`}
+                                    src={`/images/galeria/img/img_aliados/aliados${(i % 8) + 1}.png`}
                                     alt={`Logo del aliado ${(i % 8) + 1}`}
                                 />
                             </div>

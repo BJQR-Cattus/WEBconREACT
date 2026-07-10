@@ -9,6 +9,13 @@
     --verde-300: #81C784;
     --verde-200: #A5D6A7;
     --verde-100: #E8F5E9;
+    --verde-1000: #001d11;
+
+    /* VERDES institucionales usados por paginas internas */
+    --verde-oscuro-inst: #12341a;
+    --verde-brillante: #00ff3c;
+    --verde-rama: #00791c;
+    --verde-opaco: #2c5f2d;
 
     /* TIERRA (contexto rural) */
     --tierra-800: #5D4037;
@@ -23,6 +30,7 @@
     --gris-500: #90A4AE;
     --gris-300: #CFD8DC;
     --gris-100: #ECEFF1;
+    --gris-neutro: #555;
     --blanco: #FFFFFF;
 
     /* ACENTOS */
