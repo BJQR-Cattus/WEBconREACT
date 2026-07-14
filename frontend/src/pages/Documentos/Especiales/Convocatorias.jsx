@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getCalls, getCallStages } from "../../../services/api.js";
 import { convocatoriaYears, convocatoriasData } from "./convocatoriasData.js";
 import "./convocatorias.css";
 
@@ -11,14 +12,36 @@ function getStatusClass(status) {
 }
 
 function Convocatorias() {
+  const [apiCalls, setApiCalls] = useState(null);
   const [selectedYear, setSelectedYear] = useState(convocatoriaYears[0].id);
   const [selectedMode, setSelectedMode] = useState(convocatoriaYears[0].modalidades[0]);
   const [openId, setOpenId] = useState(null);
   const [activeStages, setActiveStages] = useState({});
 
-  const yearConfig = convocatoriaYears.find((year) => year.id === selectedYear);
+  useEffect(() => {
+    getCalls().then(async (calls) => {
+      if (!calls.length) return;
+      const mapped = await Promise.all(calls.map(async (call) => ({
+        id: call.id,
+        anio: String(call.year),
+        modalidad: call.modality,
+        numero: call.number,
+        titulo: call.title,
+        estado: call.status,
+        etapas: (await getCallStages(call.id)).map((stage) => ({ id: stage.id, titulo: stage.name, documentos: [] })),
+      })));
+      setApiCalls(mapped);
+      setSelectedYear(mapped[0].anio);
+      setSelectedMode(mapped[0].modalidad);
+    }).catch(() => {});
+  }, []);
 
-  const filteredCalls = convocatoriasData
+  const callsSource = apiCalls ?? convocatoriasData;
+  const yearsSource = useMemo(() => apiCalls ? [...new Map(apiCalls.map((call) => [call.anio, { id: call.anio, modalidades: [...new Set(apiCalls.filter((item) => item.anio === call.anio).map((item) => item.modalidad))] }])).values()] : convocatoriaYears, [apiCalls]);
+
+  const yearConfig = yearsSource.find((year) => year.id === selectedYear);
+
+  const filteredCalls = callsSource
     .filter((item) => item.anio === selectedYear && item.modalidad === selectedMode)
     .toSorted(sortByNumberDesc);
 
@@ -27,8 +50,8 @@ function Convocatorias() {
   };
 
   const counters = {
-    total: convocatoriasData.length,
-    yearTotal: convocatoriasData.filter((item) => item.anio === selectedYear).length,
+    total: callsSource.length,
+    yearTotal: callsSource.filter((item) => item.anio === selectedYear).length,
     filteredTotal: filteredCalls.length,
     activeYear: selectedYear,
   };
@@ -63,7 +86,7 @@ function Convocatorias() {
         </div>
 
         <div className="convocatorias-page__year-tabs" aria-label="Selector de año">
-          {convocatoriaYears.map((year) => (
+          {yearsSource.map((year) => (
             <button
               key={year.id}
               type="button"

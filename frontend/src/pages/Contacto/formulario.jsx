@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sendContactMessage } from "../../services/api.js";
 import "./contacto.css";
 
 function Contacto() {
@@ -44,7 +45,7 @@ function Contacto() {
             // para enviar el correo directamente desde el frontend.
 
             // Simulación temporal de envío (quitar cuando se conecte el backend real)
-            await new Promise((resolve) => setTimeout(resolve, 800));
+            await sendContactMessage({ full_name: formData.nombre, email: formData.email, phone: formData.telefono, institution: formData.institucion || null, subject: formData.motivo, message: formData.mensaje });
 
             setEnviado(true);
             setFormData({
@@ -74,7 +75,7 @@ function Contacto() {
                 {enviado && (
                     <div className="form-alert success">
                         <i className="fas fa-circle-check"></i> Tu solicitud fue enviada
-                        correctamente. Nos pondremos en contacto pronto.
+                        correctamente y fue recibida por nuestro equipo. Nos pondremos en contacto pronto.
                     </div>
                 )}
 

@@ -6,7 +6,8 @@ function NormativaInstitucional() {
     <DocumentosSimplePage
       titulo="Normativa Institucional"
       descripcion="Consulta directivas, reglamentos, formatos y otros documentos normativos de la institución."
-      documentos={normativaInstitucionalData}
+      categorySlug="normativa-institucional"
+      fallbackDocuments={normativaInstitucionalData}
     />
   );
 }

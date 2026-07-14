@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { getNews } from "../../services/api.js";
 import "./NewsReport.css";
 
 // TODO (Fase 2 - backend): reemplazar este arreglo fijo por un fetch
@@ -38,8 +40,23 @@ const noticiasData = [
 ];
 
 function NewsReport() {
-  const noticias = noticiasData;
-  const loading = false;
+  const [noticias, setNoticias] = useState(noticiasData);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getNews()
+      .then((items) => setNoticias(items.map((item) => ({
+        id: item.id,
+        imagen: item.image_url || "/images/galeria/img/noticias_index/Notice1.png",
+        titulo: item.title,
+        fecha: item.published_date || "Sin fecha",
+        resumen: item.summary,
+        fuente: item.source || "DRA Huancavelica",
+        url: item.source_url || "#",
+      }))))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <main className="noticias-section">

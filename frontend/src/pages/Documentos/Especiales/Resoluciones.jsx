@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getFileUrl, getResolutions } from "../../../services/api.js";
 import { resolucionesData } from "./resolucionesData.js";
 import "./resoluciones.css";
 
@@ -20,9 +21,16 @@ function flattenDocuments(years) {
 }
 
 function Resoluciones() {
+  const [apiData, setApiData] = useState(null);
   const [anioActivo, setAnioActivo] = useState(resolucionesData[0].id);
   const [tipoActivo, setTipoActivo] = useState(resolucionesData[0].grupos[0].id);
   const [busqueda, setBusqueda] = useState("");
+
+  useEffect(() => {
+    getResolutions().then((items) => {
+      if (items.length) setApiData(items);
+    }).catch(() => {});
+  }, []);
 
   const allDocuments = useMemo(() => flattenDocuments(resolucionesData), []);
   const activeYear = resolucionesData.find((year) => year.id === anioActivo) ?? resolucionesData[0];
@@ -46,6 +54,10 @@ function Resoluciones() {
         .includes(term)
     );
   }, [activeGroup, activeYear.anio, busqueda]);
+
+  if (apiData) {
+    return <ResolucionesApi items={apiData} />;
+  }
 
   return (
     <main className="resoluciones-page">
@@ -182,6 +194,12 @@ function Resoluciones() {
       </section>
     </main>
   );
+}
+
+function ResolucionesApi({ items }) {
+  const [busqueda, setBusqueda] = useState("");
+  const filtradas = items.filter((item) => [item.number, item.year, item.resolution_type, item.description].join(" ").toLowerCase().includes(busqueda.toLowerCase()));
+  return <main className="resoluciones-page"><section className="resoluciones-page__hero"><div className="resoluciones-page__hero-content"><span className="resoluciones-page__eyebrow">Trámites y documentos</span><h1>Resoluciones</h1><p>Resoluciones publicadas desde la plataforma institucional.</p></div></section><section className="resoluciones-page__content"><label className="resoluciones-page__search"><i className="fas fa-magnifying-glass"></i><input type="search" value={busqueda} onChange={(event) => setBusqueda(event.target.value)} placeholder="Buscar resolución..." /></label><section className="resoluciones-page__documents"><div className="resoluciones-page__documents-header"><div><span>{filtradas.length} documentos</span><h2>Resoluciones publicadas</h2></div></div><div className="resoluciones-page__list">{filtradas.map((item) => <article className="resoluciones-page__doc-card" key={item.id}><div className="resoluciones-page__doc-icon"><i className="fas fa-file-pdf"></i></div><div className="resoluciones-page__doc-info"><div className="resoluciones-page__doc-header"><span className="resoluciones-page__category">{item.resolution_type}</span><span className="resoluciones-page__year">{item.year}</span></div><h3>{item.description || `Resolución ${item.number}`}</h3><div className="resoluciones-page__meta"><span><i className="fas fa-hashtag"></i>{item.number}</span></div></div><a className="resoluciones-page__download" href={getFileUrl(item.file_url)} target="_blank" rel="noopener noreferrer">Ver PDF</a></article>)}</div></section></section></main>;
 }
 
 export default Resoluciones;

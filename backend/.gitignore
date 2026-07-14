@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Env
+.venv/
+
+# Variables
+.env
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Uploads
+app/uploads/
+app/app/uploads/
+
+# Logs
+*.log
+
+# Python cache
+.pytest_cache/
+
+# Docker
+*.pid

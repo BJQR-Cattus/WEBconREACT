@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getCategories, getDocuments, getFileUrl } from "../../services/api.js";
 import "./documentos-simple.css";
 
 const NEW_DAYS_LIMIT = 30;
@@ -26,9 +27,63 @@ function getFileIcon(tipoArchivo) {
   return "fa-file-pdf";
 }
 
-function DocumentosSimplePage({ titulo, descripcion, documentos }) {
+function DocumentosSimplePage({
+  titulo,
+  descripcion,
+  categorySlug,
+  fallbackDocuments = [],
+}) {
   const [busqueda, setBusqueda] = useState("");
   const [tipoActivo, setTipoActivo] = useState("todos");
+  const [documentos, setDocumentos] = useState(fallbackDocuments);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isCurrent = true;
+
+    async function loadDocuments() {
+      setIsLoading(true);
+      setError("");
+
+      try {
+        const categories = await getCategories();
+        const category = categories.find((item) => item.slug === categorySlug);
+
+        if (!category) {
+          if (isCurrent) setDocumentos([]);
+          return;
+        }
+
+        const apiDocuments = await getDocuments({ category_id: category.id });
+        if (isCurrent) {
+          setDocumentos(
+            apiDocuments.map((document) => ({
+              id: document.id,
+              nombre: document.title,
+              descripcion: document.description ?? "Sin descripción disponible.",
+              categoria: document.group_name ?? category.name,
+              fechaPublicacion: document.publication_date,
+              tipoArchivo: document.file_type,
+            urlDescarga: getFileUrl(document.file_url),
+            }))
+          );
+        }
+      } catch {
+        if (isCurrent) {
+          setDocumentos(fallbackDocuments);
+          setError("No se pudo actualizar la información. Se muestran los datos disponibles.");
+        }
+      } finally {
+        if (isCurrent) setIsLoading(false);
+      }
+    }
+
+    loadDocuments();
+    return () => {
+      isCurrent = false;
+    };
+  }, [categorySlug, fallbackDocuments]);
 
   const tiposArchivo = useMemo(() => {
     const tipos = documentos.map((doc) => doc.tipoArchivo);
@@ -131,6 +186,20 @@ function DocumentosSimplePage({ titulo, descripcion, documentos }) {
             ))}
           </div>
         </div>
+
+        {isLoading && (
+          <div className="documentos-simple-page__notice" role="status">
+            <i className="fas fa-spinner fa-spin"></i>
+            Cargando documentos publicados...
+          </div>
+        )}
+
+        {error && !isLoading && (
+          <div className="documentos-simple-page__notice documentos-simple-page__notice--warning" role="alert">
+            <i className="fas fa-triangle-exclamation"></i>
+            {error}
+          </div>
+        )}
 
         <div className="documentos-simple-page__list">
           {documentosFiltrados.length > 0 ? (

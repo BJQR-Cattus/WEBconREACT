@@ -6,7 +6,8 @@ function SeguroAgrario() {
     <DocumentosSimplePage
       titulo="Seguro Agrario"
       descripcion="Accede a guías, cronogramas, formatos y documentos informativos relacionados al seguro agrario."
-      documentos={seguroAgrarioData}
+      categorySlug="seguro-agrario"
+      fallbackDocuments={seguroAgrarioData}
     />
   );
 }
